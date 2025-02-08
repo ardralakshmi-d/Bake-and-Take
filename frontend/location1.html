@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake & Take - Find Nearby Bakers</title>
+    
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/R.cfa5ebb04ee3b3d8325821cc20d4cfb9?rik=KSdoI9OV18ZZSA&riu=http%3a%2f%2fthumbs.dreamstime.com%2fz%2fcolorful-single-cupcake-purple-27077549.jpg&ehk=WkWqkoeaEiKAd0C6OCuDjn5KlYpEhT3Jp4Z96LryBfw%3d&risl=&pid=ImgRaw&r=0">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.pexels.com/photos/4110007/pexels-photo-4110007.jpeg') no-repeat center center/cover;
+            background-attachment: fixed;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            margin: 10px;
+        }
+
+        .input-group {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .button {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #e65a5a;
+            transform: scale(1.05);
+        }
+
+        #bakerList {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Nearby Bakers</h1>
+        <div class="input-group">
+            <label for="customDistrict">Enter District:</label>
+            <input type="text" id="customDistrict" placeholder="Enter a district">
+            <br>
+            <label for="customLocation">Enter Location:</label>
+            <input type="text" id="customLocation" placeholder="Enter a place">
+            <br>
+            <button class="button" onclick="findBakers()">Search</button>
+        </div>
+        <div id="bakerList"></div>
+    </div>
+
+    <script>
+        const bakers = {
+            "Ernakulam": {
+                "Kakanad": ["Baker's Delight", "Sweet Treats", "Cake Haven"],
+                "Kalamaserry": ["Urban Bakes", "Sweet Bliss", "Golden Oven"]
+            },
+            "Thrissur": {
+                "Town": ["Tasty Bakes", "Cake World", "Sweet Moments"]
+            }
+        };
+
+        function findBakers() {
+            let location = document.getElementById("customLocation").value.trim();
+            let district = document.getElementById("customDistrict").value.trim();
+            
+            const listDiv = document.getElementById("bakerList");
+            if (!location || !district) {
+                listDiv.innerHTML = "<p>Please enter both district and location.</p>";
+                return;
+            }
+            
+            let listHTML = `<h3>Nearby Bakers in ${location}, ${district}:</h3><ul>`;
+            if (bakers[district] && bakers[district][location]) {
+                bakers[district][location].forEach(baker => {
+                    listHTML += `<li>${baker}</li>`;
+                });
+            } else {
+                listHTML += "<li>No known bakers in this area.</li>";
+            }
+            listHTML += "</ul>";
+            
+            listDiv.innerHTML = listHTML;
+        }
+    </script>
+</body>
+</html>
