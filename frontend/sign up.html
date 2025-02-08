@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Bake & Take</title>
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/R.cfa5ebb04ee3b3d8325821cc20d4cfb9?rik=KSdoI9OV18ZZSA&riu=http%3a%2f%2fthumbs.dreamstime.com%2fz%2fcolorful-single-cupcake-purple-27077549.jpg&ehk=WkWqkoeaEiKAd0C6OCuDjn5KlYpEhT3Jp4Z96LryBfw%3d&risl=&pid=ImgRaw&r=0">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
@@ -86,10 +88,37 @@
             cursor: pointer;
             transition: 0.3s;
             font-weight: 600;
+            margin-top: 10px;
         }
 
         .button:hover {
             background: linear-gradient(to right, #e65a5a, #ff9a76);
+            transform: scale(1.05);
+        }
+
+        .google-btn {
+            background: white;
+            color: #555;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .google-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .google-btn:hover {
+            background: #f0f0f0;
             transform: scale(1.05);
         }
 
@@ -123,8 +152,20 @@
             <input type="password" name="password" placeholder="Enter Your Password" required>
             <button type="submit" class="button">Sign Up</button>
         </form>
+
+        <!-- Google Sign-Up Button -->
+        <div class="google-btn" onclick="googleSignUp()">
+            <img src="data:image/jpeg;base64,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" alt="Google Logo">
+            Sign up with Google
+        </div>
+
         <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
     </div>
 
+    <script>
+        function googleSignUp() {
+            window.location.href = "https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=email profile&response_type=token";
+        }
+    </script>
 </body>
 </html>
