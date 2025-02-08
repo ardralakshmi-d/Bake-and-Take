@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup - Bake & Take</title>
+    <title>Baker Sign up - Bake & Take</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
@@ -25,7 +25,7 @@
             position: absolute;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(100px);
         }
 
         .shape.one {
@@ -36,8 +36,8 @@
         }
 
         .shape.two {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             bottom: -80px;
             right: -80px;
         }
@@ -72,7 +72,7 @@
 
         input:focus {
             border-color: #ff6b6b;
-            box-shadow: 0px 0px 10px rgba(255, 107, 107, 0.5);
+            box-shadow: 0px 0px 8px rgba(255, 107, 107, 0.5);
         }
 
         .button {
@@ -116,11 +116,12 @@
     <div class="shape two"></div>
 
     <div class="signup-container">
-        <h2>Sign Up</h2>
-        <form action="signup_process.php" method="POST">
+        <h2>Sign up for Bakers</h2>
+        <form action="baker_signup_process.php" method="POST">
             <input type="text" name="name" placeholder="Enter Your Name" required>
             <input type="email" name="email" placeholder="Enter Your Email" required>
             <input type="password" name="password" placeholder="Enter Your Password" required>
+            <input type="text" name="specialty" placeholder="Your Baking Specialty (e.g., Cakes, Pastries)" required>
             <button type="submit" class="button">Sign Up</button>
         </form>
         <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
@@ -128,3 +129,6 @@
 
 </body>
 </html>
+
+
+

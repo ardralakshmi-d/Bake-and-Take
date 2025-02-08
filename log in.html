@@ -3,116 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bake & Take - Home Bakers Community</title>
+    <title>Bake and Take </title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;600&display=swap');
-
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdf7f2;
-            text-align: center;
-        }
-
-        .hero {
-            background: url('https://source.unsplash.com/1600x900/?bakery,homemade-cakes') no-repeat center center/cover;
-            height: 100vh;
+            background-color: #f8f5f2;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            align-items: center;
+            height: 100vh;
         }
-
-        .hero h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 60px;
-            margin: 10px;
-        }
-
-        .hero p {
-            font-size: 22px;
-            max-width: 600px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            display: inline-block;
-        }
-
-        .button {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: #e65a5a;
-            transform: scale(1.05);
-        }
-
-        .features {
-            padding: 50px;
+        .login-container {
             background: white;
-        }
-
-        .features h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            font-size: 30px;
-        }
-
-        .features p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 18px;
-            color: #555;
-        }
-
-        .features img {
-            width: 90%;
-            max-width: 500px;
-            margin-top: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
         }
-
-        footer {
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-button {
             background: #ff6b6b;
             color: white;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
+            padding: 10px;
             width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             font-size: 16px;
+        }
+        .login-button:hover {
+            background: #e65a5a;
+        }
+        .register-link {
+            margin-top: 15px;
+            display: block;
+            font-size: 14px;
+        }
+        .register-link a {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Bake & Take</h1>
-        <p>Discover homemade baked goods from talented home bakers near you. Fresh, delicious, and made with love.</p>
-        <a href="explore.html" class="button">Explore Bakers</a>
+    <div class="login-container">
+        <h2>Login or Sign up</h2>
+        <form action="dashboard.html" method="POST">
+            <input type="text" class="input-box" placeholder="Enter Username" required>
+            <input type="password" class="input-box" placeholder="Enter Password" required>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p class="register-link">New here? <a href="register.html">Create an account</a></p>
     </div>
-
-    <div class="features">
-        <h2>Why Choose Bake & Take?</h2>
-        <p>We connect you with local home bakers who craft delicious cakes, cookies, and desserts, fresh from their kitchens.</p>
-        <img src="file:///C:/Users/anj/Pictures/bake%20and%20take/" >
-    </div>
-
-    <footer>
-        &copy; 2025 Bake & Take | Made with ❤️ for Home Bakers & Food Lovers
-    </footer>
 
 </body>
 </html>
