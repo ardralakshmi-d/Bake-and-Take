@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking & Contact - Bake & Take</title>
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/R.cfa5ebb04ee3b3d8325821cc20d4cfb9?rik=KSdoI9OV18ZZSA&riu=http%3a%2f%2fthumbs.dreamstime.com%2fz%2fcolorful-single-cupcake-purple-27077549.jpg&ehk=WkWqkoeaEiKAd0C6OCuDjn5KlYpEhT3Jp4Z96LryBfw%3d&risl=&pid=ImgRaw&r=0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Order Tracking */
+        .order-tracking input {
+            width: 80%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ff6b6b;
+            border-radius: 8px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .track-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .track-btn:hover {
+            background: #e65a5a;
+        }
+
+        .order-status {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .faq-question {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background: #ffe6e6;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon {
+            font-size: 20px;
+            color: #ff6b6b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .order-tracking input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Order Tracking Section -->
+        <div class="section order-tracking">
+            <h2>Track Your Order</h2>
+            <input type="text" id="trackingNumber" placeholder="Enter Order ID">
+            <button class="track-btn" onclick="trackOrder()">Track Order</button>
+            <p class="order-status" id="orderStatus"></p>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section faq">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(0)">📦 How long does delivery take?</div>
+                <div class="faq-answer">Delivery usually takes 3-5 business days depending on your location.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(1)">💰 What payment methods do you accept?</div>
+                <div class="faq-answer">We accept Cash on Delivery (COD) and online payments.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(2)">🎂 Can I customize my cake order?</div>
+                <div class="faq-answer">Yes! You can add special instructions when placing an order.</div>
+            </div>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="section contact">
+            <h2>Contact Our Bakers</h2>
+            <div class="contact-info">
+                <p><span class="icon">📍</span> Location: 123 Bakery Street, City, Country</p>
+                <p><span class="icon">📞</span> Phone: +91 98765 43210</p>
+                <p><span class="icon">📧</span> Email: support@bakeandtake.com</p>
+                <p><span class="icon">🕒</span> Working Hours: 9 AM - 9 PM (Monday - Sunday)</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Order Tracking Function
+        function trackOrder() {
+            var trackingNumber = document.getElementById("trackingNumber").value;
+            var statusMessage = document.getElementById("orderStatus");
+
+            if (trackingNumber === "12345") {
+                statusMessage.innerHTML = "🚚 Your order is out for delivery!";
+                statusMessage.style.color = "green";
+            } else if (trackingNumber === "67890") {
+                statusMessage.innerHTML = "📦 Your order is being prepared!";
+                statusMessage.style.color = "blue";
+            } else {
+                statusMessage.innerHTML = "❌ Invalid Order ID! Please check and try again.";
+                statusMessage.style.color = "red";
+            }
+        }
+
+        // FAQ Toggle Function
+        function toggleFAQ(index) {
+            var answers = document.querySelectorAll(".faq-answer");
+            answers[index].style.display = (answers[index].style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>

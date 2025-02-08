@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Bake & Take</title>
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/R.cfa5ebb04ee3b3d8325821cc20d4cfb9?rik=KSdoI9OV18ZZSA&riu=http%3a%2f%2fthumbs.dreamstime.com%2fz%2fcolorful-single-cupcake-purple-27077549.jpg&ehk=WkWqkoeaEiKAd0C6OCuDjn5KlYpEhT3Jp4Z96LryBfw%3d&risl=&pid=ImgRaw&r=0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #fdf1f1; /* Light pinkish background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 900px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+        .image-container {
+            flex: 1;
+            text-align: center;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+        }
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: 400;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            font-weight: 400;
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin: 8px 0 3px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 3px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #fff;
+            color: #333;
+        }
+        input::placeholder, textarea::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .payment-option input {
+            width: auto;
+        }
+        .button {
+            background: #ff6b6b;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background: #e65a5a;
+            transform: scale(1.03);
+        }
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .image-container img {
+                max-width: 250px;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <header>Product Details - Bake & Take</header>
+
+            <form action="order_confirmation.html" method="POST">
+                <label for="product">Select Product:</label>
+                <select id="product" name="product" required>
+                    <option value="" disabled selected>Select a baked item</option>
+                    <option value="Chocolate Cake">Chocolate Cake</option>
+                    <option value="Vanilla Cupcakes">Vanilla Cupcakes</option>
+                    <option value="Cheese Cake">Cheese Cake</option>
+                    <option value="Brownies">Brownies</option>
+                    <option value="Custom Order">Custom Order</option>
+                </select>
+
+                <label for="size">Select Size:</label>
+                <select id="size" name="size" required>
+                    <option value="" disabled selected>Select size</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required placeholder="Enter quantity">
+
+                <label for="flavor">Choose Flavor:</label>
+                <select id="flavor" name="flavor">
+                    <option value="" disabled selected>Select flavor</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Vanilla">Vanilla</option>
+                    <option value="Strawberry">Strawberry</option>
+                    <option value="Red Velvet">Red Velvet</option>
+                </select>
+
+                <label for="instructions">Special Instructions:</label>
+                <textarea id="instructions" name="instructions" rows="3" placeholder="Any special requests?"></textarea>
+
+                <label>Payment Method:</label>
+                <div class="payment-option">
+                    <input type="radio" id="cod" name="payment_method" value="Cash on Delivery" required>
+                    <label for="cod">Cash on Delivery (COD)</label>
+                </div>
+
+                <button type="submit" class="button">Confirm Order</button>
+            </form>
+        </div>
+
+        <div class="image-container">
+            <img src="https://th.bing.com/th/id/OIP.WKzS49m2CXv1X4L93E_ciAHaLG?w=204&h=306&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Cake Image">
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
