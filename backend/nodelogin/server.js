@@ -1,30 +1,49 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
-const authRoutes = require('./routes/auth');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const path = require("path");
+const bcrypt = require("bcrypt");
+const User = require("./models/User"); 
+require("dotenv").config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB Atlas Connected'))
-  .catch(err => console.log("MongoDB Connection Error", err));
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.post("/signup", (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
-  res.json({ message: "Signup successful!" });
-});
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Middleware
+app.use(express.json()); 
+app.use(cors()); 
+
+
+
+// MongoDB Connection
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("✅ Connected to MongoDB Atlas"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
+// API Route
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from Bake & Take Backend!" });
+});
+app.post("/signup", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({ username, password: hashedPassword });
+    await newUser.save();
+
+    res.json({ message: "Signup successful!" });
+  } catch (error) {
+    res.status(500).json({ message: "Error signing up" });
+  }
+});
+// Serve Frontend
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "sign up.html"));
+});
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
