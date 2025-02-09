@@ -83,11 +83,17 @@ Project Documentation
 For Software:
 
 Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
+![image](https://github.com/user-attachments/assets/a4e1c4d7-98ed-4dc0-b5b1-d261b8187509)
+This displays the home page of our site. The customer or baker can go to their respective sign in pages or find home bakers near them.
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
+![image](https://github.com/user-attachments/assets/ad771332-42f1-425d-a121-2bac7e1942a7)
+This is where the customer can enter their details so that baker can enssure accurate delivery.
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+![image](https://github.com/user-attachments/assets/4077a265-d32b-4fb8-86e6-54ff17f65045)
+This is where the customer can enter the details of their order, like type, quantity, customizations, etc.
+
+![image](https://github.com/user-attachments/assets/b6ee6da8-4ca3-4be7-969f-6f2b37bb3883)
+This is where the baker can create their profile by showcasing their skills.
 
 Diagrams
 ![image](https://github.com/user-attachments/assets/4499cb71-53d2-401e-a984-74550fc79d15)
