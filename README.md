@@ -1,11 +1,15 @@
 Bake & Take
 
 Basic Details
+
 Team Name: Nexora
 
 Team Members
+
 Member 1: Ardralakshmi D - Model Engineering College
+
 Member 2: Anjana V C - Model Engineering College
+
 Member 3: Anna Josena Sunny P - Model Engineering College
 
 Hosted Project Link
