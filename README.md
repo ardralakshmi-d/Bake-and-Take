@@ -90,7 +90,7 @@ Screenshots (Add at least 3)
 ![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
 
 Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
+![image](https://github.com/user-attachments/assets/4499cb71-53d2-401e-a984-74550fc79d15)
 
 
 Team Contributions
